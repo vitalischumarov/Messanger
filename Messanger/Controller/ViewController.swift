@@ -14,6 +14,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func registerPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "goToRegister", sender: self)
+    }
+    
+    @IBAction func loginPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "goToLogin", sender: self)
+    }
 }
 
