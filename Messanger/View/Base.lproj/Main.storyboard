@@ -78,13 +78,13 @@
                                 <rect key="frame" x="80" y="99" width="233" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4bi-i4-Zoo">
                                 <rect key="frame" x="80" y="141" width="233" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htf-hL-O84">
                                 <rect key="frame" x="164" y="218" width="66" height="35"/>
@@ -101,6 +101,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="OuP-ee-uTb"/>
                     <connections>
+                        <outlet property="emailTextField" destination="eR1-IF-ypF" id="VJJ-Ns-VDb"/>
+                        <outlet property="passwordTextField" destination="4bi-i4-Zoo" id="bKd-xf-gFZ"/>
                         <segue destination="a6e-CY-scv" kind="show" identifier="goToChat" id="Ej5-Ac-2LQ"/>
                     </connections>
                 </viewController>
@@ -195,7 +197,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rkG-dM-0TP"/>
+        <segue reference="Ej5-Ac-2LQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

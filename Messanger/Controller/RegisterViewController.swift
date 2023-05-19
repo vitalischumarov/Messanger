@@ -18,15 +18,15 @@ class RegisterViewController: UIViewController {
 
     }
     @IBAction func registerPressed(_ sender: UIButton) {
-        if let email = emailTextfield.text {
-            if let password = passwordTextField.text {
+        if let email = emailTextfield.text, let password = passwordTextField.text {
                 Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                  print("User created!!")
-                    print(authResult)
-                    self.emailTextfield.text = ""
-                    self.passwordTextField.text = ""
+                    if (error == nil) {
+                        print("User created!!")
+                        self.emailTextfield.text = ""
+                        self.passwordTextField.text = ""
+                        self.performSegue(withIdentifier: "goToChat", sender: self)
+                    }
                 }
-            }
         }
     }
 }

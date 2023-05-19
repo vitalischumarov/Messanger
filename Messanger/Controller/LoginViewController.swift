@@ -6,16 +6,27 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
-
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     @IBAction func loginPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goToChat", sender: self)
+        if let email = emailTextField.text, let password = passwordTextField.text {
+                Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+                    if (error != nil) {
+                        print(error)
+                        return
+                    } else {
+                        self?.performSegue(withIdentifier: "goToChat", sender: self)
+                    }
+                }
+        }
     }
-    
 }
