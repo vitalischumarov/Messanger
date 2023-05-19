@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>825400426622-dpenjr01k0corohfok5muts9dohoj6p2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.825400426622-dpenjr01k0corohfok5muts9dohoj6p2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDQmAfIGPzkwQ82o_BaKxYd7w-_otx_YBc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>825400426622</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.SchumarovVitali.Messanger</string>
+	<key>PROJECT_ID</key>
+	<string>messanger-276ba</string>
+	<key>STORAGE_BUCKET</key>
+	<string>messanger-276ba.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:825400426622:ios:c2fd81451b1020a99e982f</string>
+</dict>
+</plist>
