@@ -14,11 +14,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func registerPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goToRegister", sender: self)
+        self.performSegue(withIdentifier: ConstanceType.goToRegisterSegue, sender: self)
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goToLogin", sender: self)
+        self.performSegue(withIdentifier: ConstanceType.goToLoginSegue, sender: self)
     }
 }
 

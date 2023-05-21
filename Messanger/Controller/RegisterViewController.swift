@@ -24,7 +24,7 @@ class RegisterViewController: UIViewController {
                         print("User created!!")
                         self.emailTextfield.text = ""
                         self.passwordTextField.text = ""
-                        self.performSegue(withIdentifier: "goToChat", sender: self)
+                        self.performSegue(withIdentifier: ConstanceType.goToLoginChat, sender: self)
                     }
                 }
         }

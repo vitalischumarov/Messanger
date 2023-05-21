@@ -15,16 +15,19 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        emailTextField.text = "testHans@gmx.de"
+        passwordTextField.text = "testhans"
     }
     @IBAction func loginPressed(_ sender: UIButton) {
         if let email = emailTextField.text, let password = passwordTextField.text {
                 Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
                     if (error != nil) {
-                        print(error)
+                        print(error!)
                         return
                     } else {
-                        self?.performSegue(withIdentifier: "goToChat", sender: self)
+                        self?.emailTextField.text = ""
+                        self?.passwordTextField.text = ""
+                        self?.performSegue(withIdentifier: ConstanceType.goToLoginChat, sender: self)
                     }
                 }
         }

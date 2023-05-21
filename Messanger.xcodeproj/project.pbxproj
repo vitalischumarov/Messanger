@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4EDCE0F80115C0A8C25EE669 /* Pods_Messanger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C99267EDB93B524AE8BFE5B /* Pods_Messanger.framework */; };
+		9144323F2A17FB7000B9B6EA /* ConstanceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9144323E2A17FB7000B9B6EA /* ConstanceType.swift */; };
+		916B33262A1957E800DC9869 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916B33252A1957E800DC9869 /* Message.swift */; };
 		9174CF902A176A8100F2A5B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9174CF8F2A176A8100F2A5B1 /* GoogleService-Info.plist */; };
+		9177D99C2A1A61ED0007B923 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9177D99A2A1A61ED0007B923 /* CustomCell.swift */; };
+		9177D99D2A1A61ED0007B923 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9177D99B2A1A61ED0007B923 /* CustomCell.xib */; };
 		919BD6322A154D91009BA2E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BD6312A154D91009BA2E6 /* AppDelegate.swift */; };
 		919BD6342A154D91009BA2E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BD6332A154D91009BA2E6 /* SceneDelegate.swift */; };
 		919BD6362A154D91009BA2E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BD6352A154D91009BA2E6 /* ViewController.swift */; };
@@ -23,7 +27,11 @@
 /* Begin PBXFileReference section */
 		40E0C63134CB5D1B0BCBAE60 /* Pods-Messanger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messanger.release.xcconfig"; path = "Target Support Files/Pods-Messanger/Pods-Messanger.release.xcconfig"; sourceTree = "<group>"; };
 		4C99267EDB93B524AE8BFE5B /* Pods_Messanger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Messanger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9144323E2A17FB7000B9B6EA /* ConstanceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstanceType.swift; sourceTree = "<group>"; };
+		916B33252A1957E800DC9869 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9174CF8F2A176A8100F2A5B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9177D99A2A1A61ED0007B923 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		9177D99B2A1A61ED0007B923 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		919BD62E2A154D91009BA2E6 /* Messanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		919BD6312A154D91009BA2E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		919BD6332A154D91009BA2E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +122,10 @@
 		919BD6472A154E38009BA2E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9144323E2A17FB7000B9B6EA /* ConstanceType.swift */,
+				916B33252A1957E800DC9869 /* Message.swift */,
+				9177D99A2A1A61ED0007B923 /* CustomCell.swift */,
+				9177D99B2A1A61ED0007B923 /* CustomCell.xib */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9177D99D2A1A61ED0007B923 /* CustomCell.xib in Resources */,
 				919BD63E2A154D92009BA2E6 /* LaunchScreen.storyboard in Resources */,
 				9174CF902A176A8100F2A5B1 /* GoogleService-Info.plist in Resources */,
 				919BD63B2A154D92009BA2E6 /* Assets.xcassets in Resources */,
@@ -243,10 +256,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9144323F2A17FB7000B9B6EA /* ConstanceType.swift in Sources */,
 				919BD6362A154D91009BA2E6 /* ViewController.swift in Sources */,
 				919BD6322A154D91009BA2E6 /* AppDelegate.swift in Sources */,
 				919BD6342A154D91009BA2E6 /* SceneDelegate.swift in Sources */,
+				9177D99C2A1A61ED0007B923 /* CustomCell.swift in Sources */,
 				919BD64B2A154FF2009BA2E6 /* LoginViewController.swift in Sources */,
+				916B33262A1957E800DC9869 /* Message.swift in Sources */,
 				919BD64D2A155039009BA2E6 /* ChatViewController.swift in Sources */,
 				919BD6492A154FDC009BA2E6 /* RegisterViewController.swift in Sources */,
 			);
