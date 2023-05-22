@@ -7,23 +7,31 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 
 class ChatViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var messageTextField: UITextField!
+    
+    let db = Firestore.firestore()
     
     var messages: [Message] = [
-        Message(sender: "Peter", body: "Ich bin Peter"),
-        Message(sender: "Das Wort", body: "Gott liebt dich"),
-        Message(sender: "Goal", body: "Ich will Programmierer werden")
+//        Message(sender: "Peter", body: "Ich bin Peter"),
+//        Message(sender: "Das Wort", body: "Gott liebt dich"),
+//        Message(sender: "Goal", body: "Ich will Programmierer werden")
     ]
 
     override func viewDidLoad() {
+        loadData()
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
         navigationItem.title = "Vitalis Messenger"
         tableView.delegate = self
         tableView.dataSource = self
+        messageTextField.delegate = self
+
     }
 
     @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
@@ -34,6 +42,34 @@ class ChatViewController: UIViewController, UITableViewDelegate {
             navigationController?.popToRootViewController(animated: true)
         } catch let signOutError as NSError {
           print("Error signing out: %@", signOutError)
+        }
+    }
+    
+    func loadData() {
+        db.collection("messages").order(by: "date").addSnapshotListener { (querySnapshot, err) in
+            self.messages = []
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+// Der querySnapshot enthält alle Informationen die gespeichert sind.
+                for document in querySnapshot!.documents {
+                    print(document.data())
+                    print(document.data().keys)
+// .data() liefert mir ein Dictionary mit den Werten
+                    for all in document.data() {
+                        if (all.key != "date") {
+                            let newMessage = Message(sender: all.key, body: all.value as! String)
+                            self.messages.append(newMessage)
+                        }
+//Mit der reloadDate() funktion kann ich mein TableView neu laden
+                        
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+//                print(self.messages)
+            }
         }
     }
 }
@@ -51,5 +87,24 @@ extension ChatViewController: UITableViewDataSource {
         cell?.messageLabel.text = messages[indexPath.row].body
         cell?.userLabel.text = messages[indexPath.row].sender
         return cell!
+    }
+}
+
+extension ChatViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let messageBody = textField.text, let messageSender = Auth.auth().currentUser?.email {
+//in data[..] werden die Angaben eingegeben, die gespeichert werden sollen
+//"messages" ist die Collection unter der die Daten gespeichert werden. Diese kann man sich aussuchen.
+            db.collection("messages").addDocument(data: [messageSender : messageBody, "date": Date().timeIntervalSince1970]) { error in
+                if let e = error {
+                  print("error")
+                } else {
+                    print("saved data")
+                }
+            }
+        }
+        self.view.endEditing(true)
+        textField.text = ""
+        return true
     }
 }

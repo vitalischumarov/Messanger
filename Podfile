@@ -8,5 +8,6 @@ target 'Messanger' do
   # Pods for Messanger
 pod 'FirebaseAuth'
 pod 'FirebaseFirestore'
+pod 'IQKeyboardManagerSwift'
 
 end
