@@ -17,11 +17,7 @@ class ChatViewController: UIViewController, UITableViewDelegate {
     
     let db = Firestore.firestore()
     
-    var messages: [Message] = [
-//        Message(sender: "Peter", body: "Ich bin Peter"),
-//        Message(sender: "Das Wort", body: "Gott liebt dich"),
-//        Message(sender: "Goal", body: "Ich will Programmierer werden")
-    ]
+    var messages: [Message] = [ ]
 
     override func viewDidLoad() {
         loadData()
@@ -31,6 +27,7 @@ class ChatViewController: UIViewController, UITableViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         messageTextField.delegate = self
+        print("The current user: \(Auth.auth().currentUser!.email!)")
 
     }
 
@@ -53,8 +50,8 @@ class ChatViewController: UIViewController, UITableViewDelegate {
             } else {
 // Der querySnapshot enthält alle Informationen die gespeichert sind.
                 for document in querySnapshot!.documents {
-                    print(document.data())
-                    print(document.data().keys)
+//                    print(document.data())
+//                    print(document.data().keys)
 // .data() liefert mir ein Dictionary mit den Werten
                     for all in document.data() {
                         if (all.key != "date") {
@@ -86,6 +83,11 @@ extension ChatViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomCell
         cell?.messageLabel.text = messages[indexPath.row].body
         cell?.userLabel.text = messages[indexPath.row].sender
+        if (Auth.auth().currentUser!.email! == messages[indexPath.row].sender) {
+            cell?.backgroundColor = UIColor.blue
+        } else {
+            cell?.backgroundColor = UIColor.red
+        }
         return cell!
     }
 }
